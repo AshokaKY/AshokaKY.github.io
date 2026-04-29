@@ -1,0 +1,738 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ashoka K Y — Portfolio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --ink:#0f0f0f;--ink2:#3a3a3a;--ink3:#6e6e6e;
+  --paper:#faf9f7;--card:#ffffff;--line:#e8e5df;
+  --accent:#1a4fd6;--accent2:#0d3aaa;
+  --gold:#c9960a;--teal:#0d7a6e;
+  --r:12px;--r2:6px;
+  font-size:16px;
+}
+html{scroll-behavior:smooth}
+body{background:var(--paper);color:var(--ink);font-family:'DM Sans',sans-serif;line-height:1.6;overflow-x:hidden}
+
+/* ── NAV ── */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(250,249,247,0.92);backdrop-filter:blur(12px);border-bottom:1px solid var(--line);padding:0 2rem}
+.nav-inner{max-width:1100px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;height:60px}
+.nav-logo{font-family:'Syne',sans-serif;font-weight:800;font-size:1.1rem;letter-spacing:-0.02em;color:var(--ink);text-decoration:none}
+.nav-logo span{color:var(--accent)}
+.nav-links{display:flex;gap:1.5rem;list-style:none}
+.nav-links a{font-size:0.85rem;color:var(--ink2);text-decoration:none;font-weight:500;transition:color 0.2s}
+.nav-links a:hover{color:var(--accent)}
+.nav-cta{background:var(--ink);color:white!important;padding:0.4rem 1rem;border-radius:20px;font-size:0.82rem!important}
+.nav-cta:hover{background:var(--accent)!important;color:white!important}
+
+/* ── HERO ── */
+#hero{min-height:100vh;display:flex;align-items:center;padding:80px 2rem 4rem;position:relative;overflow:hidden}
+.hero-bg{position:absolute;inset:0;pointer-events:none}
+.hero-blob{position:absolute;border-radius:60% 40% 55% 45%;opacity:0.06}
+.blob1{width:600px;height:600px;background:var(--accent);top:-100px;right:-150px;animation:drift1 14s ease-in-out infinite}
+.blob2{width:400px;height:400px;background:var(--teal);bottom:-50px;left:-100px;animation:drift2 18s ease-in-out infinite}
+@keyframes drift1{0%,100%{transform:rotate(0deg) scale(1)}50%{transform:rotate(10deg) scale(1.05)}}
+@keyframes drift2{0%,100%{transform:rotate(0deg) scale(1)}50%{transform:rotate(-8deg) scale(1.04)}}
+.hero-inner{max-width:1100px;margin:0 auto;width:100%;display:grid;grid-template-columns:1fr 380px;gap:4rem;align-items:center}
+.hero-tag{display:inline-flex;align-items:center;gap:0.5rem;background:var(--card);border:1px solid var(--line);border-radius:20px;padding:0.3rem 1rem;font-size:0.78rem;color:var(--ink2);margin-bottom:1.5rem}
+.hero-tag-dot{width:8px;height:8px;border-radius:50%;background:var(--teal);animation:pulse 2s ease-in-out infinite}
+@keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:0.5;transform:scale(0.8)}}
+h1.hero-name{font-family:'Syne',sans-serif;font-weight:800;font-size:clamp(2.8rem,6vw,4.2rem);line-height:1.05;letter-spacing:-0.03em;color:var(--ink);margin-bottom:0.5rem}
+h1.hero-name span{color:var(--accent)}
+.hero-role{font-family:'Syne',sans-serif;font-size:1rem;color:var(--ink3);font-weight:500;letter-spacing:0.05em;text-transform:uppercase;margin-bottom:1.5rem}
+.hero-desc{font-size:1.05rem;color:var(--ink2);max-width:520px;line-height:1.75;margin-bottom:2rem}
+.hero-desc strong{color:var(--ink);font-weight:500}
+.hero-stats{display:flex;gap:2rem;margin-bottom:2.5rem}
+.stat{display:flex;flex-direction:column}
+.stat-num{font-family:'Syne',sans-serif;font-weight:800;font-size:1.8rem;color:var(--ink);letter-spacing:-0.03em}
+.stat-label{font-size:0.75rem;color:var(--ink3);text-transform:uppercase;letter-spacing:0.06em}
+.hero-btns{display:flex;gap:1rem;flex-wrap:wrap}
+.btn-primary{background:var(--accent);color:white;padding:0.75rem 1.75rem;border-radius:8px;text-decoration:none;font-weight:500;font-size:0.9rem;transition:all 0.2s;border:none;cursor:pointer}
+.btn-primary:hover{background:var(--accent2);transform:translateY(-1px)}
+.btn-secondary{background:transparent;color:var(--ink);padding:0.75rem 1.75rem;border-radius:8px;text-decoration:none;font-weight:500;font-size:0.9rem;transition:all 0.2s;border:1.5px solid var(--line)}
+.btn-secondary:hover{border-color:var(--ink);background:var(--card)}
+.hero-photo-wrap{position:relative;display:flex;justify-content:center}
+.hero-photo-frame{width:300px;height:370px;border-radius:16px;background:linear-gradient(135deg,#e8f0ff,#dff0ea);display:flex;align-items:flex-end;justify-content:center;position:relative;overflow:hidden;border:1px solid var(--line)}
+.hero-photo-frame img{width:100%;height:100%;object-fit:cover;object-position:top}
+.photo-placeholder{display:flex;flex-direction:column;align-items:center;justify-content:center;height:100%;gap:1rem}
+.photo-initials{width:90px;height:90px;border-radius:50%;background:var(--accent);display:flex;align-items:center;justify-content:center;font-family:'Syne',sans-serif;font-weight:800;font-size:2rem;color:white}
+.photo-hint{font-size:0.8rem;color:var(--ink3);text-align:center;padding:0 1.5rem}
+.photo-badge{position:absolute;bottom:-10px;right:-10px;background:var(--card);border:1px solid var(--line);border-radius:10px;padding:0.6rem 1rem;font-size:0.8rem;font-weight:500;color:var(--ink);box-shadow:0 4px 16px rgba(0,0,0,0.08)}
+.photo-badge-sub{font-size:0.7rem;color:var(--teal);font-weight:500}
+
+/* ── SECTIONS COMMON ── */
+section{padding:5rem 2rem}
+.container{max-width:1100px;margin:0 auto}
+.section-label{display:flex;align-items:center;gap:0.75rem;margin-bottom:0.75rem}
+.section-label-line{width:32px;height:2px;background:var(--accent)}
+.section-label-text{font-size:0.75rem;color:var(--accent);font-weight:600;letter-spacing:0.1em;text-transform:uppercase}
+.section-title{font-family:'Syne',sans-serif;font-weight:700;font-size:clamp(1.8rem,4vw,2.5rem);letter-spacing:-0.02em;color:var(--ink);margin-bottom:1rem}
+.section-sub{font-size:1rem;color:var(--ink3);max-width:560px;line-height:1.75}
+
+/* ── ABOUT ── */
+#about{background:var(--card);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:start;margin-top:3rem}
+.about-text p{color:var(--ink2);line-height:1.8;margin-bottom:1.25rem;font-size:0.97rem}
+.about-text p strong{color:var(--ink);font-weight:500}
+.about-right{}
+.about-card{background:var(--paper);border:1px solid var(--line);border-radius:var(--r);padding:1.5rem;margin-bottom:1rem}
+.about-card-title{font-family:'Syne',sans-serif;font-weight:700;font-size:0.85rem;color:var(--ink3);text-transform:uppercase;letter-spacing:0.08em;margin-bottom:0.75rem}
+.lang-grid{display:flex;flex-wrap:wrap;gap:0.5rem}
+.lang-pill{background:var(--card);border:1px solid var(--line);border-radius:20px;padding:0.25rem 0.75rem;font-size:0.8rem;color:var(--ink2)}
+.lang-pill span{color:var(--ink3);font-size:0.72rem}
+.interest-grid{display:flex;flex-wrap:wrap;gap:0.5rem}
+.interest-pill{background:var(--card);border:1px solid var(--line);border-radius:20px;padding:0.25rem 0.75rem;font-size:0.8rem;color:var(--ink2)}
+.contact-rows{display:flex;flex-direction:column;gap:0.6rem}
+.contact-row{display:flex;align-items:center;gap:0.75rem;font-size:0.87rem;color:var(--ink2)}
+.contact-row a{color:var(--accent);text-decoration:none}
+.contact-row a:hover{text-decoration:underline}
+.ci{width:20px;height:20px;display:flex;align-items:center;justify-content:center;color:var(--ink3)}
+
+/* ── EXPERIENCE ── */
+#experience{background:var(--paper)}
+.exp-card{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:2rem;margin-top:2.5rem;position:relative;overflow:hidden}
+.exp-card::before{content:'';position:absolute;left:0;top:0;bottom:0;width:3px;background:var(--accent)}
+.exp-header{display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:1rem;margin-bottom:1.25rem}
+.exp-role{font-family:'Syne',sans-serif;font-weight:700;font-size:1.25rem;color:var(--ink);margin-bottom:0.25rem}
+.exp-company{font-size:0.92rem;color:var(--accent);font-weight:500}
+.exp-period{background:var(--paper);border:1px solid var(--line);border-radius:var(--r2);padding:0.3rem 0.8rem;font-size:0.78rem;color:var(--ink3);font-weight:500;white-space:nowrap}
+.exp-brands{display:flex;gap:0.5rem;flex-wrap:wrap;margin-bottom:1.25rem}
+.brand-tag{background:#eef2ff;color:#3a5bd6;border-radius:var(--r2);padding:0.2rem 0.65rem;font-size:0.76rem;font-weight:500}
+.exp-bullets{display:grid;grid-template-columns:1fr 1fr;gap:0.5rem 2rem}
+.exp-bullet{display:flex;gap:0.6rem;font-size:0.88rem;color:var(--ink2);line-height:1.55}
+.exp-bullet-dot{width:6px;height:6px;border-radius:50%;background:var(--accent);flex-shrink:0;margin-top:0.45rem}
+.exp-highlight{background:#f0f7ff;border-radius:var(--r2);padding:1rem 1.25rem;margin-top:1.25rem;display:flex;gap:2rem}
+.exp-hl-item{display:flex;flex-direction:column}
+.exp-hl-num{font-family:'Syne',sans-serif;font-weight:800;font-size:1.6rem;color:var(--accent);letter-spacing:-0.03em}
+.exp-hl-label{font-size:0.75rem;color:var(--ink3)}
+
+/* ── SKILLS ── */
+#skills{background:var(--card);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.skills-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1.5rem;margin-top:2.5rem}
+.skill-card{background:var(--paper);border:1px solid var(--line);border-radius:var(--r);padding:1.5rem}
+.skill-card-icon{width:36px;height:36px;border-radius:8px;display:flex;align-items:center;justify-content:center;margin-bottom:1rem;font-size:1rem}
+.icon-marketing{background:#eef2ff}
+.icon-web{background:#e8f8f0}
+.icon-analytics{background:#fff8e6}
+.icon-hosting{background:#fceee8}
+.icon-tools{background:#f0f0ff}
+.skill-card-title{font-family:'Syne',sans-serif;font-weight:700;font-size:0.95rem;color:var(--ink);margin-bottom:0.75rem}
+.skill-tags{display:flex;flex-wrap:wrap;gap:0.4rem}
+.skill-tag{background:var(--card);border:1px solid var(--line);border-radius:20px;padding:0.2rem 0.65rem;font-size:0.76rem;color:var(--ink2)}
+
+/* ── PROJECTS ── */
+#projects{background:var(--paper)}
+.projects-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;margin-top:2.5rem}
+.project-card{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:1.75rem;transition:transform 0.2s,box-shadow 0.2s}
+.project-card:hover{transform:translateY(-3px);box-shadow:0 8px 30px rgba(0,0,0,0.07)}
+.project-type{font-size:0.72rem;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;margin-bottom:0.75rem}
+.type-ml{color:var(--accent)}
+.type-web{color:var(--teal)}
+.type-dm{color:var(--gold)}
+.type-design{color:#7c3aed}
+.project-title{font-family:'Syne',sans-serif;font-weight:700;font-size:1.05rem;color:var(--ink);margin-bottom:0.75rem}
+.project-desc{font-size:0.87rem;color:var(--ink2);line-height:1.7;margin-bottom:1rem}
+.project-stack{display:flex;flex-wrap:wrap;gap:0.35rem}
+.stack-tag{background:var(--paper);border:1px solid var(--line);border-radius:4px;padding:0.15rem 0.5rem;font-size:0.72rem;color:var(--ink3);font-family:monospace}
+
+/* ── EDUCATION ── */
+#education{background:var(--card);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.edu-list{display:flex;flex-direction:column;gap:1.25rem;margin-top:2.5rem}
+.edu-row{display:flex;gap:1.5rem;align-items:flex-start}
+.edu-year{font-family:'Syne',sans-serif;font-weight:700;font-size:0.8rem;color:var(--ink3);min-width:80px;padding-top:0.2rem}
+.edu-body{flex:1;background:var(--paper);border:1px solid var(--line);border-radius:var(--r2);padding:1.1rem 1.25rem}
+.edu-degree{font-family:'Syne',sans-serif;font-weight:700;font-size:1rem;color:var(--ink);margin-bottom:0.25rem}
+.edu-school{font-size:0.87rem;color:var(--ink2)}
+.edu-grade{font-size:0.8rem;color:var(--teal);font-weight:500;margin-top:0.3rem}
+
+/* ── CERTIFICATIONS ── */
+#certifications{background:var(--paper)}
+.certs-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1.25rem;margin-top:2.5rem}
+.cert-card{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:1.25rem 1.5rem;display:flex;gap:1rem;align-items:flex-start}
+.cert-icon{width:40px;height:40px;border-radius:8px;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:1.1rem}
+.cert-icon-govt{background:#e8f8f0}
+.cert-icon-work{background:#eef2ff}
+.cert-icon-ws{background:#fff8e6}
+.cert-title{font-weight:500;font-size:0.9rem;color:var(--ink);margin-bottom:0.25rem}
+.cert-issuer{font-size:0.78rem;color:var(--ink3)}
+
+/* ── CONTACT ── */
+#contact{background:var(--ink);padding:5rem 2rem}
+#contact .section-label-text{color:#7a9fff}
+#contact .section-label-line{background:#7a9fff}
+#contact .section-title{color:white}
+#contact .section-sub{color:rgba(255,255,255,0.55)}
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:4rem;margin-top:3rem;align-items:start}
+.contact-methods{display:flex;flex-direction:column;gap:1rem}
+.contact-method{display:flex;align-items:center;gap:1rem;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:var(--r2);padding:1rem 1.25rem;text-decoration:none;transition:background 0.2s}
+.contact-method:hover{background:rgba(255,255,255,0.1)}
+.cm-icon{width:36px;height:36px;border-radius:6px;background:rgba(255,255,255,0.1);display:flex;align-items:center;justify-content:center;color:white;flex-shrink:0}
+.cm-label{font-size:0.72rem;color:rgba(255,255,255,0.45);text-transform:uppercase;letter-spacing:0.08em}
+.cm-value{font-size:0.9rem;color:white;font-weight:500}
+.contact-note{background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:var(--r);padding:2rem}
+.contact-note-title{font-family:'Syne',sans-serif;font-weight:700;font-size:1.1rem;color:white;margin-bottom:0.75rem}
+.contact-note-text{font-size:0.9rem;color:rgba(255,255,255,0.55);line-height:1.75;margin-bottom:1.5rem}
+.contact-note-roles{display:flex;flex-direction:column;gap:0.5rem}
+.role-item{display:flex;align-items:center;gap:0.6rem;font-size:0.87rem;color:rgba(255,255,255,0.7)}
+.role-dot{width:6px;height:6px;border-radius:50%;background:#7a9fff;flex-shrink:0}
+
+/* ── FOOTER ── */
+footer{background:#0a0a0a;padding:2rem;text-align:center;border-top:1px solid rgba(255,255,255,0.06)}
+.footer-text{font-size:0.8rem;color:rgba(255,255,255,0.3)}
+.footer-text a{color:rgba(255,255,255,0.5);text-decoration:none}
+
+/* ── ANIMATIONS ── */
+.reveal{opacity:0;transform:translateY(24px);transition:opacity 0.6s ease,transform 0.6s ease}
+.reveal.visible{opacity:1;transform:none}
+
+/* ── RESPONSIVE ── */
+@media(max-width:768px){
+  .hero-inner{grid-template-columns:1fr;gap:2rem}
+  .hero-photo-wrap{order:-1}
+  .hero-photo-frame{width:220px;height:270px}
+  .about-grid,.contact-grid,.projects-grid,.exp-bullets{grid-template-columns:1fr}
+  nav{padding:0 1rem}
+  .nav-links{display:none}
+}
+
+/* ── PHOTO UPLOAD HINT ── */
+.photo-edit-hint{position:absolute;inset:0;background:rgba(0,0,0,0.5);display:flex;flex-direction:column;align-items:center;justify-content:center;color:white;opacity:0;transition:opacity 0.2s;border-radius:16px;cursor:pointer;font-size:0.85rem;gap:0.5rem}
+.hero-photo-frame:hover .photo-edit-hint{opacity:1}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-inner">
+    <a class="nav-logo" href="#hero">Ashoka <span>K Y</span></a>
+    <ul class="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#education">Education</a></li>
+      <li><a href="#contact" class="nav-cta">Contact</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-bg">
+    <div class="hero-blob blob1"></div>
+    <div class="hero-blob blob2"></div>
+  </div>
+  <div class="hero-inner">
+    <div class="hero-content">
+      <div class="hero-tag">
+        <span class="hero-tag-dot"></span>
+        Open to opportunities · Bangalore / Remote
+      </div>
+      <h1 class="hero-name">Ashoka<br><span>K Y</span></h1>
+      <p class="hero-role">Digital Marketing Executive · Web & Technical Specialist</p>
+      <p class="hero-desc">
+        MCA graduate blending <strong>backend development</strong> with <strong>full-funnel digital marketing</strong> — building websites, running ads, tracking every rupee, and turning traffic into qualified leads.
+      </p>
+      <div class="hero-stats">
+        <div class="stat">
+          <span class="stat-num">600+</span>
+          <span class="stat-label">Leads generated</span>
+        </div>
+        <div class="stat">
+          <span class="stat-num">3</span>
+          <span class="stat-label">Brands managed</span>
+        </div>
+        <div class="stat">
+          <span class="stat-num">MCA</span>
+          <span class="stat-label">Distinction</span>
+        </div>
+      </div>
+      <div class="hero-btns">
+        <a href="#experience" class="btn-primary">View My Work</a>
+        <a href="#contact" class="btn-secondary">Get In Touch</a>
+      </div>
+    </div>
+
+    <div class="hero-photo-wrap">
+      <div class="hero-photo-frame" id="photoFrame" title="Click to add your photo">
+        <!-- PHOTO: Replace this block with <img src="your-photo.jpg" alt="Ashoka K Y"> -->
+        <img src="/mnt/user-data/uploads/WhatsApp_Image_2026-04-27_at_14_50_28.jpeg" alt="Ashoka K Y" onerror="this.style.display='none';document.getElementById('photoPlaceholder').style.display='flex'">
+        <div class="photo-placeholder" id="photoPlaceholder" style="display:none">
+          <div class="photo-initials">AKY</div>
+          <p class="photo-hint">Replace the img src with your photo path to display your picture here</p>
+        </div>
+        <div class="photo-edit-hint">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M17 8l-5-5-5 5M12 3v12"/></svg>
+          Replace with your photo
+        </div>
+      </div>
+      <div class="photo-badge">
+        <div style="font-weight:600;color:var(--ink)">Available for hire</div>
+        <div class="photo-badge-sub">· Krishnarajapet, Karnataka</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="container">
+    <div class="section-label">
+      <div class="section-label-line"></div>
+      <span class="section-label-text">About Me</span>
+    </div>
+    <h2 class="section-title">Hybrid profile — tech + marketing</h2>
+    <div class="about-grid">
+      <div class="about-text reveal">
+        <p>I'm a <strong>Digital Marketing Executive and Web Specialist</strong> based in Karnataka with a Master's in Computer Applications (Distinction). My work sits at the crossroads of technology and marketing — I don't just run ads or build websites in isolation; I connect the full pipeline.</p>
+        <p>At <strong>Paras Prithvi Jewels</strong>, I independently managed digital operations for three brands — jewelry, real estate, and property — handling everything from Meta Ads strategy and landing page development to hosting infrastructure, pixel tracking, and SEO.</p>
+        <p>My technical background in <strong>Java, Spring Boot, REST APIs, SQL, and Python</strong> gives me an edge — I can read code, debug tracking issues, set up APIs, and communicate with developers, making me a strong bridge between tech and business teams.</p>
+        <p>I'm actively seeking roles in <strong>digital marketing with technical depth</strong>, backend/web development, or analytics — wherever I can build practical expertise and grow fast.</p>
+      </div>
+      <div class="reveal">
+        <div class="about-card">
+          <div class="about-card-title">Languages Known</div>
+          <div class="lang-grid">
+            <div class="lang-pill">Kannada <span>· Native</span></div>
+            <div class="lang-pill">English <span>· Professional</span></div>
+            <div class="lang-pill">Hindi <span>· Conversational</span></div>
+            <div class="lang-pill">Telugu <span>· Intermediate</span></div>
+          </div>
+        </div>
+        <div class="about-card">
+          <div class="about-card-title">Interests & Character</div>
+          <div class="interest-grid">
+            <span class="interest-pill">Leadership</span>
+            <span class="interest-pill">Team Collaboration</span>
+            <span class="interest-pill">Jogging</span>
+            <span class="interest-pill">Gardening</span>
+            <span class="interest-pill">Music</span>
+            <span class="interest-pill">Travelling</span>
+            <span class="interest-pill">Fitness</span>
+          </div>
+        </div>
+        <div class="about-card">
+          <div class="about-card-title">Contact</div>
+          <div class="contact-rows">
+            <div class="contact-row">
+              <svg class="ci" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.09 9.81a19.79 19.79 0 01-3.07-8.68A2 2 0 012 .19h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 14.92z"/></svg>
+              +91 8792079305
+            </div>
+            <div class="contact-row">
+              <svg class="ci" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+              <a href="mailto:ashokakya@gmail.com">ashokakya@gmail.com</a>
+            </div>
+            <div class="contact-row">
+              <svg class="ci" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+              <a href="https://www.linkedin.com/in/ashokaky/" target="_blank">linkedin.com/in/ashokaky</a>
+            </div>
+            <div class="contact-row">
+              <svg class="ci" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              Krishnarajapet, Mandya, Karnataka
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section id="experience">
+  <div class="container">
+    <div class="section-label">
+      <div class="section-label-line"></div>
+      <span class="section-label-text">Experience</span>
+    </div>
+    <h2 class="section-title">Where I've worked</h2>
+    <p class="section-sub">5 months of hands-on, independent execution across marketing, web development, and technical operations.</p>
+
+    <div class="exp-card reveal">
+      <div class="exp-header">
+        <div>
+          <div class="exp-role">Digital Marketing Executive</div>
+          <div class="exp-company">Paras Prithvi Jewels</div>
+        </div>
+        <div class="exp-period">Dec 2025 – Apr 2026 · Krishnarajapet, KA</div>
+      </div>
+      <div class="exp-brands">
+        <span class="brand-tag">Paras Prithvi Jewels</span>
+        <span class="brand-tag">Paras Prithvi Infrastructure</span>
+        <span class="brand-tag">Mysore Property</span>
+      </div>
+      <div class="exp-bullets">
+        <div class="exp-bullet"><div class="exp-bullet-dot"></div>Managed end-to-end Meta Ads campaigns across three brands — jewelry, real estate, and property — covering creative strategy, audience segmentation, and budget allocation</div>
+        <div class="exp-bullet"><div class="exp-bullet-dot"></div>Generated 600+ qualified leads through targeted Facebook and Instagram campaigns with continuous A/B testing of creatives, headlines, and audiences</div>
+        <div class="exp-bullet"><div class="exp-bullet-dot"></div>Built and optimized landing pages using WordPress and Elementor with mobile-first layouts and strong conversion architecture</div>
+        <div class="exp-bullet"><div class="exp-bullet-dot"></div>Implemented Meta Pixel and GA4 conversion events for accurate lead attribution, retargeting, and campaign performance measurement</div>
+        <div class="exp-bullet"><div class="exp-bullet-dot"></div>Set up and managed Google Search Console and Google Business Profiles for all three brands to improve local SEO and organic visibility</div>
+        <div class="exp-bullet"><div class="exp-bullet-dot"></div>Developed WordPress websites with child theme customization, Astra + Elementor, plugin management, and performance tuning</div>
+        <div class="exp-bullet"><div class="exp-bullet-dot"></div>Handled Shopify store setup — product uploads, collections, Dawn theme UI changes, and payment gateway testing for e-commerce prototype</div>
+        <div class="exp-bullet"><div class="exp-bullet-dot"></div>Managed hosting infrastructure on Hostinger and GoDaddy — domain connection, DNS configuration, SSL installation, and troubleshooting</div>
+        <div class="exp-bullet"><div class="exp-bullet-dot"></div>Planned and executed social media content calendars for Instagram and Facebook across all brand accounts including Reels and posts</div>
+        <div class="exp-bullet"><div class="exp-bullet-dot"></div>Built automated lead tracking and reporting in Google Sheets for campaign data, CPL trends, and multi-brand performance metrics</div>
+      </div>
+      <div class="exp-highlight">
+        <div class="exp-hl-item">
+          <span class="exp-hl-num">600+</span>
+          <span class="exp-hl-label">Qualified leads</span>
+        </div>
+        <div class="exp-hl-item">
+          <span class="exp-hl-num">3</span>
+          <span class="exp-hl-label">Brands handled</span>
+        </div>
+        <div class="exp-hl-item">
+          <span class="exp-hl-num">Full</span>
+          <span class="exp-hl-label">Funnel ownership</span>
+        </div>
+        <div class="exp-hl-item">
+          <span class="exp-hl-num">Solo</span>
+          <span class="exp-hl-label">Independent execution</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Internship -->
+    <div class="exp-card reveal" style="margin-top:1.5rem">
+      <div class="exp-header">
+        <div>
+          <div class="exp-role">Digital Marketing & Web Development Intern</div>
+          <div class="exp-company">Learners Digital Pvt. Ltd.</div>
+        </div>
+        <div class="exp-period">Nov 2024 – Jan 2025 · 6 Weeks</div>
+      </div>
+      <div class="exp-bullets" style="grid-template-columns:1fr">
+        <div class="exp-bullet"><div class="exp-bullet-dot"></div>Completed a structured 6-week internship covering digital marketing fundamentals, WordPress website development, and campaign management basics</div>
+        <div class="exp-bullet"><div class="exp-bullet-dot"></div>Gained hands-on exposure to content strategy, social media operations, landing page creation, and SEO techniques</div>
+        <div class="exp-bullet"><div class="exp-bullet-dot"></div>Built foundational skills in web technologies and digital tools that directly supported current professional role</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills">
+  <div class="container">
+    <div class="section-label">
+      <div class="section-label-line"></div>
+      <span class="section-label-text">Skills</span>
+    </div>
+    <h2 class="section-title">Technical & marketing toolkit</h2>
+    <p class="section-sub">A hybrid skill set covering the full journey from ad creation to website deployment to analytics reporting.</p>
+    <div class="skills-grid">
+      <div class="skill-card reveal">
+        <div class="skill-card-icon icon-marketing">📢</div>
+        <div class="skill-card-title">Digital Marketing & Ads</div>
+        <div class="skill-tags">
+          <span class="skill-tag">Meta Ads Manager</span>
+          <span class="skill-tag">Lead Generation</span>
+          <span class="skill-tag">Audience Targeting</span>
+          <span class="skill-tag">Retargeting</span>
+          <span class="skill-tag">A/B Testing</span>
+          <span class="skill-tag">CPL Optimization</span>
+          <span class="skill-tag">Content Planning</span>
+          <span class="skill-tag">Reels & Posts</span>
+        </div>
+      </div>
+      <div class="skill-card reveal">
+        <div class="skill-card-icon icon-web">🌐</div>
+        <div class="skill-card-title">Web & Technical</div>
+        <div class="skill-tags">
+          <span class="skill-tag">WordPress</span>
+          <span class="skill-tag">Elementor</span>
+          <span class="skill-tag">Shopify</span>
+          <span class="skill-tag">HTML / CSS</span>
+          <span class="skill-tag">JavaScript</span>
+          <span class="skill-tag">PHP</span>
+          <span class="skill-tag">Landing Pages</span>
+          <span class="skill-tag">Child Themes</span>
+        </div>
+      </div>
+      <div class="skill-card reveal">
+        <div class="skill-card-icon icon-analytics">📊</div>
+        <div class="skill-card-title">Analytics & Tracking</div>
+        <div class="skill-tags">
+          <span class="skill-tag">Google Analytics GA4</span>
+          <span class="skill-tag">Meta Pixel</span>
+          <span class="skill-tag">Search Console</span>
+          <span class="skill-tag">Google Business Profile</span>
+          <span class="skill-tag">Conversion Tracking</span>
+          <span class="skill-tag">SEO (On-Page)</span>
+        </div>
+      </div>
+      <div class="skill-card reveal">
+        <div class="skill-card-icon icon-hosting">🔧</div>
+        <div class="skill-card-title">Hosting & Infrastructure</div>
+        <div class="skill-tags">
+          <span class="skill-tag">Hostinger</span>
+          <span class="skill-tag">GoDaddy</span>
+          <span class="skill-tag">Domain Setup</span>
+          <span class="skill-tag">DNS Management</span>
+          <span class="skill-tag">SSL Certificates</span>
+        </div>
+      </div>
+      <div class="skill-card reveal">
+        <div class="skill-card-icon icon-tools">💻</div>
+        <div class="skill-card-title">Programming & Backend</div>
+        <div class="skill-tags">
+          <span class="skill-tag">Java</span>
+          <span class="skill-tag">Spring Boot</span>
+          <span class="skill-tag">REST APIs</span>
+          <span class="skill-tag">Python</span>
+          <span class="skill-tag">SQL</span>
+          <span class="skill-tag">Power BI</span>
+          <span class="skill-tag">Data Structures</span>
+        </div>
+      </div>
+      <div class="skill-card reveal">
+        <div class="skill-card-icon icon-tools">🎨</div>
+        <div class="skill-card-title">Tools & Design</div>
+        <div class="skill-tags">
+          <span class="skill-tag">Canva</span>
+          <span class="skill-tag">Google Sheets</span>
+          <span class="skill-tag">Excel</span>
+          <span class="skill-tag">AI Prompting</span>
+          <span class="skill-tag">ChatGPT / Claude</span>
+          <span class="skill-tag">Zoho Tools</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects">
+  <div class="container">
+    <div class="section-label">
+      <div class="section-label-line"></div>
+      <span class="section-label-text">Projects</span>
+    </div>
+    <h2 class="section-title">Work & academic projects</h2>
+    <p class="section-sub">A mix of digital marketing campaigns, web builds, and academic tech projects.</p>
+    <div class="projects-grid">
+      <div class="project-card reveal">
+        <div class="project-type type-dm">Digital Marketing</div>
+        <div class="project-title">Multi-Brand Lead Generation — Paras Prithvi</div>
+        <div class="project-desc">Built and managed full-funnel Meta Ads campaigns across a jewellery brand, real estate company, and property portal. Designed landing pages, set up pixel tracking, A/B tested creatives, and optimized for CPL — generating 600+ qualified leads independently.</div>
+        <div class="project-stack">
+          <span class="stack-tag">Meta Ads</span>
+          <span class="stack-tag">WordPress</span>
+          <span class="stack-tag">Elementor</span>
+          <span class="stack-tag">GA4</span>
+          <span class="stack-tag">Meta Pixel</span>
+        </div>
+      </div>
+      <div class="project-card reveal">
+        <div class="project-type type-web">Web Development</div>
+        <div class="project-title">WordPress Landing Pages & Website Management</div>
+        <div class="project-desc">Developed mobile-optimized landing pages and websites using WordPress, Elementor, Astra child themes, and custom HTML/CSS/JS/PHP. Managed hosting setup, DNS, and SSL configuration on Hostinger and GoDaddy for multi-brand digital presence.</div>
+        <div class="project-stack">
+          <span class="stack-tag">WordPress</span>
+          <span class="stack-tag">PHP</span>
+          <span class="stack-tag">HTML/CSS</span>
+          <span class="stack-tag">Hostinger</span>
+          <span class="stack-tag">GoDaddy</span>
+        </div>
+      </div>
+      <div class="project-card reveal">
+        <div class="project-type type-web">E-Commerce</div>
+        <div class="project-title">Shopify Store Prototype — Jewellery E-Commerce</div>
+        <div class="project-desc">Set up a complete Shopify store prototype — product catalogue, collections, tagging, Dawn theme UI customizations, and payment gateway configuration. Built as a functional demo for evaluating e-commerce readiness for the brand.</div>
+        <div class="project-stack">
+          <span class="stack-tag">Shopify</span>
+          <span class="stack-tag">Dawn Theme</span>
+          <span class="stack-tag">E-Commerce</span>
+          <span class="stack-tag">UI Config</span>
+        </div>
+      </div>
+      <div class="project-card reveal">
+        <div class="project-type type-ml">Machine Learning · Academic</div>
+        <div class="project-title">Kidney Disease Classification Model</div>
+        <div class="project-desc">Developed a machine learning model to predict chronic kidney disease from clinical data. Performed data preprocessing, trained and compared two classification models, evaluated performance metrics, and built a basic user interface for input/output interaction.</div>
+        <div class="project-stack">
+          <span class="stack-tag">Python</span>
+          <span class="stack-tag">Google Colab</span>
+          <span class="stack-tag">Scikit-learn</span>
+          <span class="stack-tag">VS Code</span>
+        </div>
+      </div>
+      <div class="project-card reveal">
+        <div class="project-type type-web">Web App · Academic</div>
+        <div class="project-title">Student Details Management System</div>
+        <div class="project-desc">A web-based system to manage student-mentor assignments, track progress, and generate reports. Built backend logic in PHP with MySQL for CRUD operations and a clean HTML/CSS interface for administrative use.</div>
+        <div class="project-stack">
+          <span class="stack-tag">PHP</span>
+          <span class="stack-tag">MySQL</span>
+          <span class="stack-tag">HTML/CSS</span>
+          <span class="stack-tag">SQL</span>
+        </div>
+      </div>
+      <div class="project-card reveal">
+        <div class="project-type type-design">Design & Content</div>
+        <div class="project-title">Social Media & Canva Design Projects</div>
+        <div class="project-desc">Created brand-consistent social media content, Instagram Reels strategies, ad creatives, and website mockups using Canva for multiple brands. Managed content calendars and developed visual assets aligned with brand identities for jewellery and real estate.</div>
+        <div class="project-stack">
+          <span class="stack-tag">Canva</span>
+          <span class="stack-tag">Instagram</span>
+          <span class="stack-tag">Content Strategy</span>
+          <span class="stack-tag">Brand Design</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EDUCATION -->
+<section id="education">
+  <div class="container">
+    <div class="section-label">
+      <div class="section-label-line"></div>
+      <span class="section-label-text">Education</span>
+    </div>
+    <h2 class="section-title">Academic background</h2>
+    <div class="edu-list">
+      <div class="edu-row reveal">
+        <div class="edu-year">2023–2025</div>
+        <div class="edu-body">
+          <div class="edu-degree">MCA — Master of Computer Applications</div>
+          <div class="edu-school">Maharaja Institute of Technology Thandavapura, Karnataka</div>
+          <div class="edu-grade">First Class with Distinction · CGPA: Awaiting official transcript</div>
+        </div>
+      </div>
+      <div class="edu-row reveal">
+        <div class="edu-year">2020–2023</div>
+        <div class="edu-body">
+          <div class="edu-degree">BCA — Bachelor of Computer Applications</div>
+          <div class="edu-school">MIT First Grade College, Mysore</div>
+          <div class="edu-grade">CGPA: 7.77 / 10</div>
+        </div>
+      </div>
+      <div class="edu-row reveal">
+        <div class="edu-year">2017–2020</div>
+        <div class="edu-body">
+          <div class="edu-degree">PCMB — Pre-University Course (PUC)</div>
+          <div class="edu-school">Government Pre-University College, Krishnarajapete</div>
+          <div class="edu-grade">58.5%</div>
+        </div>
+      </div>
+      <div class="edu-row reveal">
+        <div class="edu-year">2017</div>
+        <div class="edu-body">
+          <div class="edu-degree">SSLC — Secondary School Leaving Certificate</div>
+          <div class="edu-school">Morarji Desai Residential School, Gavimata, Krishnarajapete Taluk</div>
+          <div class="edu-grade">82.08%</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CERTIFICATIONS -->
+<section id="certifications">
+  <div class="container">
+    <div class="section-label">
+      <div class="section-label-line"></div>
+      <span class="section-label-text">Certifications & Training</span>
+    </div>
+    <h2 class="section-title">Learning & credentials</h2>
+    <div class="certs-grid">
+      <div class="cert-card reveal">
+        <div class="cert-icon cert-icon-govt">🏛️</div>
+        <div>
+          <div class="cert-title">Computer Teaching & Training Certificate (CTTC)</div>
+          <div class="cert-issuer">MIIT — Govt. of India Approved · Certificate No: IND-2958 · Jan 2020</div>
+        </div>
+      </div>
+      <div class="cert-card reveal">
+        <div class="cert-icon cert-icon-work">💼</div>
+        <div>
+          <div class="cert-title">Digital Marketing & Web Development Internship</div>
+          <div class="cert-issuer">Learners Digital Pvt. Ltd. · 6 Weeks · Nov 2024 – Jan 2025</div>
+        </div>
+      </div>
+      <div class="cert-card reveal">
+        <div class="cert-icon cert-icon-ws">🛠️</div>
+        <div>
+          <div class="cert-title">Workshop: Empowering Careers with Zoho Tools</div>
+          <div class="cert-issuer">Tekvocation, Mysore · One-Day Workshop · July 2025</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="container">
+    <div class="section-label">
+      <div class="section-label-line"></div>
+      <span class="section-label-text">Contact</span>
+    </div>
+    <h2 class="section-title">Let's connect</h2>
+    <p class="section-sub">Open to full-time roles, freelance projects, and collaborations across digital marketing, web development, and analytics.</p>
+    <div class="contact-grid">
+      <div class="contact-methods reveal">
+        <a class="contact-method" href="tel:+918792079305">
+          <div class="cm-icon">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.09 9.81a19.79 19.79 0 01-3.07-8.68A2 2 0 012 .19h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 14.92z"/></svg>
+          </div>
+          <div>
+            <div class="cm-label">Phone</div>
+            <div class="cm-value">+91 8792079305</div>
+          </div>
+        </a>
+        <a class="contact-method" href="mailto:ashokakya@gmail.com">
+          <div class="cm-icon">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          </div>
+          <div>
+            <div class="cm-label">Email</div>
+            <div class="cm-value">ashokakya@gmail.com</div>
+          </div>
+        </a>
+        <a class="contact-method" href="https://www.linkedin.com/in/ashokaky/" target="_blank">
+          <div class="cm-icon">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+          </div>
+          <div>
+            <div class="cm-label">LinkedIn</div>
+            <div class="cm-value">linkedin.com/in/ashokaky</div>
+          </div>
+        </a>
+      </div>
+      <div class="contact-note reveal">
+        <div class="contact-note-title">What I'm looking for</div>
+        <div class="contact-note-text">I'm open to full-time opportunities, internships, freelance projects, and collaborations. My hybrid profile fits roles at the intersection of technology and marketing.</div>
+        <div class="contact-note-roles">
+          <div class="role-item"><div class="role-dot"></div>Digital Marketing Executive / Manager</div>
+          <div class="role-item"><div class="role-dot"></div>Web Developer (WordPress / Full-Stack)</div>
+          <div class="role-item"><div class="role-dot"></div>Backend Developer (Java / Spring Boot)</div>
+          <div class="role-item"><div class="role-dot"></div>Growth / Performance Marketing Specialist</div>
+          <div class="role-item"><div class="role-dot"></div>Analytics & Reporting Analyst</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <p class="footer-text">© 2026 Ashoka K Y · Built for opportunities · <a href="mailto:ashokakya@gmail.com">ashokakya@gmail.com</a></p>
+</footer>
+
+<script>
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if(e.isIntersecting){e.target.classList.add('visible');observer.unobserve(e.target)}
+  });
+},{threshold:0.1,rootMargin:'0px 0px -40px 0px'});
+document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+</script>
+</body>
+</html>
